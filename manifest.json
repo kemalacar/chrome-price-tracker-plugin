@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+
+  "name": "Price Tracker",
+  "description": "Select price and track. trace changes .",
+  "version": "1.0",
+  "author": "Kemal Acar",
+
+  "permissions": [
+    "contextMenus",
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_icon": "images/dog-64.png"
+  },
+  "icons": {
+    "16": "images/dog-24.png",
+    "48": "images/dog-64.png",
+    "128": "images/dog-128.png"
+  },
+
+  "background": {
+    "scripts": ["event.js"],
+    "persistent": false
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "css": ["bootstrap.min.css"],
+      "js": [
+        "content_script.js","jquery.min.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+
+}
